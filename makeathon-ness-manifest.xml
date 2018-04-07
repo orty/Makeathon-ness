@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+          xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+          xsi:type="MailApp">
+
+  <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
+
+  <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
+  <Id>c7fa2751-8f3b-417d-899a-84f155f91058</Id>
+
+  <!--Version. Updates from the store only get triggered if there is a version change. -->
+  <Version>1.0.0.0</Version>
+  <ProviderName>Ness</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
+  <DisplayName DefaultValue="Makeathon-ness" />
+  <Description DefaultValue="Makeathon-ness Outlook Add-in"/>
+
+  <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
+
+  <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
+  <SupportUrl DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net" />
+
+  <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
+  <AppDomains>
+    <AppDomain>https://makeathon-ness-projectdashboard.azurewebsites.net</AppDomain>
+  </AppDomains>
+  <!--End Basic Settings. -->
+
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+
+  <!-- Add Outlook module extension point -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
+                    xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+                      xsi:type="VersionOverridesV1_1">
+
+      <!-- Begin override of existing elements -->
+      <Description resid="residVersionOverrideDesc" />
+
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.3">
+          <bt:Set Name="Mailbox" />
+        </bt:Sets>
+      </Requirements>
+      <!-- End override of existing elements -->
+
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <!-- Set the URL of the file that contains the
+                 JavaScript function that controls the extension -->
+            <FunctionFile resid="residFunctionFileUrl" />
+
+            <!--New Extension Point - Module for a ModuleApp -->
+            <ExtensionPoint xsi:type="Module">
+              <SourceLocation resid="residExtensionPointUrl" />
+              <Label resid="residExtensionPointLabel" />
+
+              <CommandSurface>
+                <CustomTab id="idTab">
+                  <Group id="idGroup">
+                    <Label resid="residGroupLabel" />
+
+                    <Control xsi:type="Button" id="group.changeToAssociate">
+                      <Label resid="residChangeToAssociateLabel" />
+                      <Supertip>
+                        <Title resid="residChangeToAssociateLabel" />
+                        <Description resid="residChangeToAssociateDesc" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="residAssociateIcon16" />
+                        <bt:Image size="32" resid="residAssociateIcon32" />
+                        <bt:Image size="80" resid="residAssociateIcon80" />
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>changeToAssociateRate</FunctionName>
+                      </Action>
+                    </Control>
+
+                    <Control xsi:type="Button" id="group.changeToPartner">
+                      <Label resid="residChangeToPartnerLabel" />
+                      <Supertip>
+                        <Title resid="residChangeToPartnerLabel" />
+                        <Description resid="residChangeToPartnerDesc" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="residPartnerIcon16" />
+                        <bt:Image size="32" resid="residPartnerIcon32" />
+                        <bt:Image size="80" resid="residPartnerIcon80" />
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>changeToPartnerRate</FunctionName>
+                      </Action>
+                    </Control>
+
+                    <Control xsi:type="Button" id="group.changeToExecutive">
+                      <Label resid="residChangeToExecutiveLabel" />
+                      <Supertip>
+                        <Title resid="residChangeToExecutiveLabel" />
+                        <Description resid="residChangeToExecutiveDesc" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="residExecutiveIcon16" />
+                        <bt:Image size="32" resid="residExecutiveIcon32" />
+                        <bt:Image size="80" resid="residExecutiveIcon80" />
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>changeToExecutiveRate2</FunctionName>
+                      </Action>
+                    </Control>
+                    
+                  </Group>
+                  <Label resid="residCustomTabLabel" />
+                </CustomTab>
+              </CommandSurface>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="residAddinIcon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+          <bt:Image id="residAddinIcon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+          <bt:Image id="residAddinIcon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+
+          <bt:Image id="residAssociateIcon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+          <bt:Image id="residAssociateIcon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+          <bt:Image id="residAssociateIcon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+
+          <bt:Image id="residPartnerIcon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+          <bt:Image id="residPartnerIcon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+          <bt:Image id="residPartnerIcon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+
+          <bt:Image id="residExecutiveIcon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+          <bt:Image id="residExecutiveIcon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+          <bt:Image id="residExecutiveIcon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="residFunctionFileUrl" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
+          <bt:Url id="residExtensionPointUrl" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
+          <bt:String id="customTabLabel"  DefaultValue="My Add-in Tab"/>
+          <bt:String id="paneReadButtonLabel" DefaultValue="Display all properties"/>
+          <bt:String id="paneReadSuperTipTitle" DefaultValue="Get all properties"/>
+
+          <bt:String id="residExtensionPointLabel" DefaultValue="Billable Hours" />
+          <bt:String id="residGroupLabel" DefaultValue="Change billing rate" />
+          <bt:String id="residCustomTabLabel" DefaultValue="Billable hours" />
+
+          <bt:String id="residChangeToAssociateLabel" DefaultValue="Associate" />
+          <bt:String id="residChangeToPartnerLabel" DefaultValue="Partner" />
+          <bt:String id="residChangeToExecutiveLabel" DefaultValue="Executive" />
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens a pane displaying all available properties. This is an example of a button that opens a task pane."/>
+
+          <bt:String id="residVersionOverrideDesc" DefaultValue="Version override description" />
+
+          <bt:String id="residChangeToAssociateDesc" DefaultValue="Change to the associate billing rate: $127/hr" />
+          <bt:String id="residChangeToPartnerDesc" DefaultValue="Change to the partner billing rate: $237/hr" />
+          <bt:String id="residChangeToExecutiveDesc" DefaultValue="Change to the executive billing rate: $449/hr" />
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
