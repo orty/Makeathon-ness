@@ -20,8 +20,8 @@
   <Description DefaultValue="Makeathon-ness Outlook Add-in"/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
+  <IconUrl DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/hi-res-icon.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
   <SupportUrl DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net" />
@@ -147,24 +147,24 @@
 
       <Resources>
         <bt:Images>
-          <bt:Image id="residAddinIcon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-          <bt:Image id="residAddinIcon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-          <bt:Image id="residAddinIcon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+          <bt:Image id="residAddinIcon16" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-16.png"/>
+          <bt:Image id="residAddinIcon32" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-32.png"/>
+          <bt:Image id="residAddinIcon80" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-80.png"/>
 
-          <bt:Image id="residAssociateIcon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-          <bt:Image id="residAssociateIcon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-          <bt:Image id="residAssociateIcon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+          <bt:Image id="residAssociateIcon16" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-16.png"/>
+          <bt:Image id="residAssociateIcon32" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-32.png"/>
+          <bt:Image id="residAssociateIcon80" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-80.png"/>
 
-          <bt:Image id="residPartnerIcon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-          <bt:Image id="residPartnerIcon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-          <bt:Image id="residPartnerIcon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+          <bt:Image id="residPartnerIcon16" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-16.png"/>
+          <bt:Image id="residPartnerIcon32" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-32.png"/>
+          <bt:Image id="residPartnerIcon80" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-80.png"/>
 
-          <bt:Image id="residExecutiveIcon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-          <bt:Image id="residExecutiveIcon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-          <bt:Image id="residExecutiveIcon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+          <bt:Image id="residExecutiveIcon16" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-16.png"/>
+          <bt:Image id="residExecutiveIcon32" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-32.png"/>
+          <bt:Image id="residExecutiveIcon80" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/assets/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="residFunctionFileUrl" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
+          <bt:Url id="residFunctionFileUrl" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net/function-file/function-file.html"/>
           <bt:Url id="residExtensionPointUrl" DefaultValue="https://makeathon-ness-projectdashboard.azurewebsites.net"/>
         </bt:Urls>
         <bt:ShortStrings>
